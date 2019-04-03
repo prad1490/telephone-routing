@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="form-horizontal">      
+        <legend>Find cheapest Operator</legend>
+        <div class="form-group form-group-sm">
+                <div class="col-lg-4 col-md-3 col-sm-4 col-xs-12 floatPad txtRight tableWrapper txtLeft-xs">
+                        <label for="phoneNumber" class="control-label field_name2 col-xs-12 col-sm-4 col-md-4 noPadding">Phone number:</label>
+                    </div>
+      
+            <div class="col-lg-6 col-md-7 col-sm-8 col-xs-12 pad-30-left pad-0-xs operatorBlock" >
+                    <input class="form-control"  type="text"
+                    id="phoneNumber"
+                    required
+                    #phoneNumber
+                    placeholder="+46-73-212345"/>
+                <div style="padding-top:10px;" class="form-item-note-error text-danger" *ngIf="showResult.isError">{{showResult.errorMessage}}</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div class="row">
+
+        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 noPadding">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 floatPad txtRight tableWrapper txtLeft-xs">
+                   &nbsp;
+               </div>
+                <div class="spacer5 clear visible-xs"></div>
+                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-6 pad-30-left pad-0-xs">
+                    <button class="btn btn-success" (click)="findCheapOperator(phoneNumber)">Find cheapeast Operator</button>
+                </div>
+            </div>
+      </div>
+
+      <div class="row" style="padding-top:10px;" *ngIf="showResult.isSuccess">
+
+            <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 floatPad txtRight tableWrapper txtLeft-xs">
+                       &nbsp;
+                   </div>
+                    <div class="spacer5 clear visible-xs"></div>
+                    <div class="col-lg-8 col-md-5 col-sm-6 col-xs-6 pad-30-left pad-0-xs">
+                            <p  class="control-label field_name2 col-xs-6 col-sm-4 col-md-3 paraGraph" >Operator: {{showResult.operator}}</p>
+                            <p style="text-align: left !important;" class="control-label field_name2 col-xs-6 col-sm-4 col-md-4 text-left">Amount: {{showResult.amount}}</p>
+                    </div>
+                </div>
+          </div>
+
+      
+
+
+  
