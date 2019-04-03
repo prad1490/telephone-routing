@@ -8,7 +8,8 @@
       </div>
 
       <div class="col-lg-6 col-md-7 col-sm-8 col-xs-12 pad-30-left pad-0-xs operatorBlock">
-        <input class="form-control" type="text" id="phoneNumber" required #phoneNumber placeholder="+46-73-212345" />
+        <input class="form-control" (focus)="clearError()" stype="text" id="phoneNumber" required #phoneNumber
+          placeholder="+46-73-212345" />
         <div style="padding-top:10px;" class="form-item-note-error text-danger" *ngIf="showResult.isError">
           {{showResult.errorMessage}}</div>
       </div>
@@ -38,9 +39,13 @@
     </div>
     <div class="spacer5 clear visible-xs"></div>
     <div class="col-lg-8 col-md-5 col-sm-6 col-xs-6 pad-30-left pad-0-xs">
-      <p class="control-label field_name2 col-xs-6 col-sm-4 col-md-3 paraGraph">Operator: {{showResult.operator}}</p>
-      <p style="text-align: left !important;" class="control-label field_name2 col-xs-6 col-sm-4 col-md-4 text-left">
-        Amount: {{showResult.amount}}</p>
+      <div class="control-label field_name2 col-xs-6 col-sm-4 col-md-3 paraGraph">
+        <span style="font-weight: bold;">Operator:</span>
+        <span style="padding-left:5px;">{{showResult.operator}}</span></div>
+      <div style="text-align: left !important;" class="control-label field_name2 col-xs-6 col-sm-4 col-md-4 text-left ">
+        <span style="font-weight: bold;">Amount:</span>
+        <span style="padding-left:5px;">{{showResult.amount}}</span>
+      </div>
     </div>
   </div>
 </div>

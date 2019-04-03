@@ -47,7 +47,12 @@ export class PriceConfigurationComponent implements OnInit {
 
   }
 
+  clearError(){
+    this.showResult.isError = false;
+    this.showResult.errorMessage = "";
+  }
   findCheapOperator({ value: phoneNumber }) {
+    this.minPriceOptions = [];
     if (phoneNumber.trim().length === 0) {
       this.showResult.isError = true;
       this.showResult.isSuccess = false;
@@ -77,20 +82,23 @@ export class PriceConfigurationComponent implements OnInit {
         // console.log({prefixArr});
         const maxPrefix = this.getMaxPrefix(prefixArr, reformattedPhoneNumber);
         // console.log({maxPrefix});
-        this.minPriceOptions.push({ [opName]: listTable.filter(plan => plan.prefix === maxPrefix)[0].amount });
+        maxPrefix && this.minPriceOptions.push({ [opName]: listTable.filter(plan => plan.prefix === maxPrefix)[0].amount });
       })
       // console.log({minPriceOptions: this.minPriceOptions});
-      let minPriceObj = this.getCheapestOperator(this.minPriceOptions);
-      let keyVal = Object.keys(minPriceObj);
-      if (keyVal.length === 1) {
-        this.showResult.operator = keyVal[0];
-        this.showResult.amount = minPriceObj[keyVal[0]];
-
+      const minPriceObj = this.getCheapestOperator(this.minPriceOptions);
+      if (Object.keys(minPriceObj).length !== 0) {
+        let keyVal = Object.keys(minPriceObj);
+        if (keyVal.length === 1) {
+          this.showResult.operator = keyVal[0];
+          this.showResult.amount = minPriceObj[keyVal[0]];
+        }
       }
-      console.log(minPriceObj, "minPriceObjfdsfsf");
-
-      console.log({ minPriceObj });
-      // this.showResult = true;
+      else {
+        this.showResult.isSuccess = false;
+        this.showResult.isError = true;
+        this.showResult.errorMessage = "Cannot find the operator!!";
+      }
+      console.log(minPriceObj, "minPriceObj");
     }
   }
 
@@ -111,12 +119,12 @@ export class PriceConfigurationComponent implements OnInit {
   getMaxPrefix(prefixArr, phoneNumber) {  //regex pattern check
     let matchedPrefix, matchMaxLen = -1, regex;
     prefixArr.forEach(prefix => {
-      let regexStr = `${prefix}`;
+      let regexStr = `^${prefix}`;
       regex = new RegExp(regexStr)
       const matchLen = phoneNumber.match(regex)
         ? phoneNumber.match(regex)[0].length
         : 0;
-      if (matchLen > matchMaxLen) {
+      if (matchLen && matchLen > matchMaxLen) {
         matchMaxLen = matchLen;
         matchedPrefix = prefix
       }
