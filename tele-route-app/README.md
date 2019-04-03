@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## How To Run:
-1.Download code base
+1.Download code base using git clone https://github.com/prad1490/telephone-routing.git
 2. Go to >...telephone-routing\tele-route-app>
 3. Run 'npm run install" for loading the dependencies
 4. Run 'npm run build' for building the webpack with aot compilation
