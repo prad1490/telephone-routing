@@ -1,4 +1,4 @@
-import { Plan } from '../../shared/plan.model';
+import { Plan } from './plan.model';
 
 export class Operator {
   public name: string;

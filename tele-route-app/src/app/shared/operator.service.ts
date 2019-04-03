@@ -1,7 +1,7 @@
-import { Plan } from '../shared/plan.model';
+import { Plan } from './plan.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Operator } from './operator-list/operator.model';
+import { Operator } from './operator.model';
 
 @Injectable()
 export class OperatorService {
@@ -9,8 +9,8 @@ export class OperatorService {
   private operators: Operator[] = [
     new Operator(
       'OperatorA',
-       [    
-        new Plan( "1", "0.91"),
+      [
+        new Plan("1", "0.91"),
         new Plan("268", "5.1"),
         new Plan("46", "0.17"),
         new Plan("4620", "0.1"),
@@ -19,15 +19,15 @@ export class OperatorService {
         new Plan("4673", "0.9"),
         new Plan("46732", "1.1")
       ]),
-      new Operator(
-        'OperatorB',
-         [
-            new Plan("1", "44"),
-            new Plan("44", "0.5"),
-            new Plan("46", "0.2"),
-            new Plan("467", "1.0"),
-            new Plan("48", "1.2")
-        ])
+    new Operator(
+      'OperatorB',
+      [
+        new Plan("1", "44"),
+        new Plan("44", "0.5"),
+        new Plan("46", "0.2"),
+        new Plan("467", "1.0"),
+        new Plan("48", "1.2")
+      ])
   ];
 
   getOperators() {

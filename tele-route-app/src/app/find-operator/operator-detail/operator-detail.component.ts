@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { OperatorService } from '../operator.service';
-import { Operator } from '../operator-list/operator.model';
+import { OperatorService } from '../../shared/operator.service';
+import { Operator } from '../../shared/operator.model';
 
 
 @Component({
@@ -14,8 +14,8 @@ export class OperatorDetailComponent implements OnInit {
   id: number;
 
   constructor(private operatorService: OperatorService,
-              private route: ActivatedRoute,
-              private router: Router) {
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -28,8 +28,7 @@ export class OperatorDetailComponent implements OnInit {
       );
   }
   onEditOperator() {
-    this.router.navigate(['edit'], {relativeTo: this.route});
-    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 
   onDeleteOperator() {

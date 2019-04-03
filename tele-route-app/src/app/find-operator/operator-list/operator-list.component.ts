@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { OperatorService } from '../operator.service';
+import { OperatorService } from '../../shared/operator.service';
 import { Subscription } from 'rxjs';
-import { Operator } from './operator.model';
+import { Operator } from '../../shared/operator.model';
 
 @Component({
   selector: 'operator-list',
@@ -15,8 +15,8 @@ export class OperatorListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private operatorService: OperatorService,
-              private router: Router,
-              private route: ActivatedRoute) {
+    private router: Router,
+    private route: ActivatedRoute) {
   }
   ngOnInit() {
     this.subscription = this.operatorService.operatorsChanged
@@ -29,7 +29,7 @@ export class OperatorListComponent implements OnInit, OnDestroy {
   }
 
   onNewOperator() {
-    this.router.navigate(['new'], {relativeTo: this.route});
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   ngOnDestroy() {

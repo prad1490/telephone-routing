@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
-import { OperatorService } from '../operator.service';
+import { OperatorService } from '../../shared/operator.service';
 
 @Component({
   selector: 'operator-edit',
@@ -15,8 +15,8 @@ export class OperatorEditComponent implements OnInit {
   operatorForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private operatorService: OperatorService,
-              private router: Router) {
+    private operatorService: OperatorService,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -44,8 +44,8 @@ export class OperatorEditComponent implements OnInit {
       new FormGroup({
         'prefix': new FormControl(null, Validators.required),
         'amount': new FormControl(null, [
-          Validators.required,
-          Validators.pattern(/^\d*(\.\d+)?/)
+          Validators.required
+
         ])
       })
     );
@@ -56,7 +56,7 @@ export class OperatorEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   private initForm() {
@@ -70,11 +70,9 @@ export class OperatorEditComponent implements OnInit {
         for (let plan of operator.plans) {
           operatorPlans.push(
             new FormGroup({
-              'prefix': new FormControl(plan.prefix, [Validators.required,
-                Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+              'prefix': new FormControl(plan.prefix, Validators.required),
               'amount': new FormControl(plan.amount, [
-                Validators.required,
-                Validators.pattern(/^[1-9]+[0-9]*$/)
+                Validators.required
               ])
             })
           );

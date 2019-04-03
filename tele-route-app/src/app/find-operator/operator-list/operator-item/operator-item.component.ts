@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Operator } from '../operator.model';
+import { Operator } from '../../../shared/operator.model';
 
 
 @Component({

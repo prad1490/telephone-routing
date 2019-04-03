@@ -5,12 +5,8 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <div
-      class="btn-group"
-      appDropdown>
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle">
+    <div class="btn-group" appDropdown>
+      <button type="button" class="btn btn-primary dropdown-toggle">
         Manage Operator <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
@@ -23,17 +19,15 @@
 </div>
 
 <div class="row" style="padding-top:10px;">
-    <div class="col-xs-12">
-      <span class="h4">Number Prefix   --></span> &nbsp;
-      <span class="h4">Cost</span>
-    </div>
+  <div class="col-xs-12">
+    <span class="h4">Number Prefix --></span> &nbsp;
+    <span class="h4">Cost</span>
+  </div>
   <div class="col-xs-12" style="padding-top:10px;">
 
     <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let plan of operator.plans">
-        {{ plan.prefix }}   -->&nbsp;{{ plan.amount }}
+      <li class="list-group-item" *ngFor="let plan of operator.plans">
+        {{ plan.prefix }} -->&nbsp;{{ plan.amount }}
       </li>
     </ul>
   </div>
