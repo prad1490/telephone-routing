@@ -5,7 +5,7 @@ import { OperatorService } from '../shared/operator.service';
   templateUrl: './find-operator.component.html',
   styleUrls: ['./find-operator.component.scss']
 })
-export class   FindOperatorComponent implements OnInit {
+export class FindOperatorComponent implements OnInit {
 
   minPriceOptions = [];
   showResult = {
@@ -15,6 +15,7 @@ export class   FindOperatorComponent implements OnInit {
     isError: false,
     errorMessage: ""
   };
+  operatorList;
   /* OperatorList = [
     {
       "Operator1":
@@ -47,7 +48,7 @@ export class   FindOperatorComponent implements OnInit {
 
   }
 
-  clearError(){
+  clearError() {
     this.showResult.isError = false;
     this.showResult.errorMessage = "";
   }
@@ -70,12 +71,12 @@ export class   FindOperatorComponent implements OnInit {
       this.showResult.errorMessage = "";
       this.showResult.isSuccess = true;
       // console.log(typeof phoneNumber.value);
-      const operatorList = this.operatorService.getOperators();
+      this.operatorList = this.operatorService.getOperators();
       // console.log(operatorList);
       const reformattedPhoneNumber = this.numberifyPhoneNumber(phoneNumber);
       // console.log({reformattedPhoneNumber});
 
-      operatorList.forEach(op => {  //mapping through collection
+      this.operatorList.forEach(op => {  //mapping through collection
         const opName = op.name;
         const listTable = op.plans;
         const prefixArr = listTable.map(plan => plan.prefix);
