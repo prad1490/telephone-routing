@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FindOperatorComponent } from './find-operator.component';
 
+import { FindOperatorComponent } from './find-operator.component';
 
 describe('FindOperatorComponent', () => {
   let component: FindOperatorComponent;
@@ -8,9 +8,9 @@ describe('FindOperatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FindOperatorComponent ]
+      declarations: [FindOperatorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

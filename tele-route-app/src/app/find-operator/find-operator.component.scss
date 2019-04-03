@@ -1,0 +1,16 @@
+@media (min-width: 1200px){
+    .operatorBlock{
+        padding-left:25px;
+    }
+    .paraGraph{
+        padding-left: 0px;
+    }
+}
+@media (max-width: 768px){
+    .form-horizontal .form-group{
+        margin: 0px;
+    }
+    .noPadding{
+        padding: 0px;
+    }
+}
