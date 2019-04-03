@@ -35,9 +35,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 5. Run 'npm run start' to start the  application
 6. Navigate to browser with http://localhost:4200/ for application to render
 
-##About
+## About
 1. To route the telephone by prefix code matching and choosing the cheapest opearator
 2. Created Configurable Route for Pricing list
 3. Created operator selection route for finding cheapest operator.
+4. Works in IE, Firefox,and chrome.
+5. Tested in windows OS
+6. Created responsive GUI where User can create new operator, new plans, update and delete.
 
 
