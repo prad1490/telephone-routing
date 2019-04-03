@@ -8,7 +8,7 @@ export class OperatorService {
   operatorsChanged = new Subject<Operator[]>();
   private operators: Operator[] = [
     new Operator(
-      'OperatorA',
+      'Vodafone',
       [
         new Plan("1", "0.91"),
         new Plan("268", "5.1"),
@@ -20,7 +20,7 @@ export class OperatorService {
         new Plan("46732", "1.1")
       ]),
     new Operator(
-      'OperatorB',
+      'Lebara',
       [
         new Plan("1", "44"),
         new Plan("44", "0.5"),
