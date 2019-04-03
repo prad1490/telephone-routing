@@ -38,5 +38,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ##About
 1. To route the telephone by prefix code matching and choosing the cheapest opearator
 2. Created Configurable Route for Pricing list
-3. Created operator selection route for finding cheapest operator
+3. Created operator selection route for finding cheapest operator.
+
 
