@@ -88,7 +88,7 @@ describe('FindOperatorComponent', () => {
     });
     component.operatorList = spy();
     expect(component.findCheapOperator({ value: "+46-73-212345" })).toBe({
-      "Vodafone": "46"
+      "Vodafone": "0.17"
     });
   });
   it('should return empty object  if  prefix of phone number does not match with operators', () => {
